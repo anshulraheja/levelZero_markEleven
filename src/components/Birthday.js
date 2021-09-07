@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { AiOutlineGithub, AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord, FaLinkedin } from "react-icons/fa";
-import { CgWebsite } from "react-icons/cg";
+
 export default function Birthday() {
   const [dob, setDOB] = useState();
   const [number, setNumber] = useState();
   const [output, setOutput] = useState();
-
+  const date = new Date().getFullYear();
+  const ERROR_OUTPUT = "Please enter data in all the input fields";
   function checkLuckyBday() {
     if (
       dob === undefined ||
@@ -14,7 +15,8 @@ export default function Birthday() {
       number === undefined ||
       number === ""
     ) {
-      setOutput("Please enter data in all the input fields");
+      console.log(number);
+      setOutput(ERROR_OUTPUT);
       return;
     }
     let newDOB = dob.replaceAll("-", "");
@@ -27,58 +29,73 @@ export default function Birthday() {
     else setOutput("Sorry! Your birth date is unlucky");
   }
   return (
-    <div>
-      <h1>Is your birth date lucky?</h1>
-      <h4> Check if your Birthday is lucky or not</h4>
-      <h6>No data is stored. We respect user priavcy</h6>
-      <label for="dob">Date of Birth</label>
-      <br />
-      <input
-        type="date"
-        name="dob"
-        required
-        value={dob}
-        onChange={(e) => setDOB(e.target.value)}
-      />
-      <br />
-      <label for="number">Enter your lucky number</label>
-      <br />
-      <input
-        type="number"
-        name="number"
-        required
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-      <button className="btn" onClick={checkLuckyBday}>
-        check
-      </button>
-      <div>{output}</div>
-
+    <>
+      <div className="container">
+        <h1>Is your birth date lucky?</h1>
+        <h4> Check if your Birthday is lucky or not</h4>
+        <p className="pop-alert">No data is stored. We respect user priavcy</p>
+        <label htmlFor="dob">Date of Birth</label>
+        <br />
+        <input
+          type="date"
+          name="dob"
+          required
+          value={dob}
+          onChange={(e) => setDOB(e.target.value)}
+        />
+        <br />
+        <label htmlFor="number">Enter your lucky number</label>
+        <br />
+        <input
+          type="number"
+          name="number"
+          autoComplete="off"
+          required
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
+        <button className="btn" onClick={checkLuckyBday}>
+          Check
+        </button>
+        <div className="output-container">
+          <p
+            className={output === ERROR_OUTPUT ? "error-msg output" : "output"}
+          >
+            {output}
+          </p>
+        </div>
+      </div>
       <footer>
-        <ul class="footer-list">
+        <p>© | {date} | anshulraheja</p>
+        <ul className="footer-list">
           <li>
-            <a class="links" href="/" target="_blank">
+            <a href="https://github.com/anshulraheja" target="_blank">
               <AiOutlineGithub />
             </a>
           </li>
           <li>
-            <a class="links" href="/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/anshul-raheja/"
+              target="_blank"
+            >
               <FaLinkedin />
             </a>
           </li>
           <li>
-            <a class="links" href="/" target="_blank">
+            <a
+              href="https://discord.com/channels/anshulraheja#3744"
+              target="_blank"
+            >
               <FaDiscord />
             </a>
           </li>
           <li>
-            <a class="links" href="/" target="_blank">
-              <CgWebsite />
+            <a href="https://twitter.com/anshulrahejaa" target="_blank">
+              <AiOutlineTwitter />
             </a>
           </li>
         </ul>
       </footer>
-    </div>
+    </>
   );
 }

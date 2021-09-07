@@ -1,4 +1,102 @@
-.App {
-  font-family: sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+:root {
+  --primary: rgb(255, 227, 227);
+  --secondary: rgb(228, 216, 220);
+  --third: rgb(147, 181, 198);
+  --fourth: rgb(17, 50, 77);
+  --fivth: rgb(201, 204, 213);
+}
+body,
+html {
+  background-color: var(--primary);
+  color: var(--fourth);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 40vmax;
+  margin: 3vh auto;
+  padding: 1vh 5vw;
+}
+.container h1 {
+  padding: 1.5rem 0;
+  color: var(--fourth);
   text-align: center;
+}
+.container h4 {
+  text-align: center;
+}
+.container > p {
+  margin: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--third);
+  font-weight: 500;
+  background-color: var(--fivth);
+}
+.container label {
+  padding: 0.1rem 0;
+  font-weight: 900;
+}
+
+.container input {
+  margin: 0.1rem 0 0.5rem 0;
+  min-width: 40%;
+  border-radius: 0.5rem;
+  border: 2px solid var(--primary-clr);
+  padding: 0.4rem 1rem;
+  outline: none;
+  height: 3rem;
+}
+.btn {
+  font-size: 2rem;
+  width: 40%;
+  margin: 1rem auto;
+  border: var(--secondary) 1px solid;
+  border-radius: 0.8rem;
+  padding: 0.5rem 0.1rem;
+  background: var(--fourth);
+  cursor: pointer;
+  color: var(--primary);
+  height: 4rem;
+}
+.output-container {
+  width: 100%;
+  height: 100px;
+  margin: 2vh auto;
+}
+.output {
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: var(--secondary);
+  color: rgb(54, 139, 133);
+  font-weight: 800;
+}
+.error-msg {
+  color: rgb(189, 22, 22);
+}
+footer {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.footer-list {
+  margin: 0.5rem;
+}
+.footer-list > li {
+  display: inline;
+  font-size: 2rem;
+  margin: 0 0.5rem;
+}
+.footer-list li > a {
+  color: var(--fourth);
 }
