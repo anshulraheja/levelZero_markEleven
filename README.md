@@ -6,7 +6,7 @@
 
 The app checks if the user birthdate is lucky or not by checking if the user's birthdate is divisible by user's lucky number.
 
-![markEleven_SS](../public/markEleven.jpg)
+![markEleven_SS](./public/markEleven.jpg)
 
 ### My learnings
 
