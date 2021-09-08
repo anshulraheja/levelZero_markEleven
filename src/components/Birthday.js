@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord, FaLinkedin } from "react-icons/fa";
+import "./Birthday.css";
 
 export default function Birthday() {
   const [dob, setDOB] = useState();
